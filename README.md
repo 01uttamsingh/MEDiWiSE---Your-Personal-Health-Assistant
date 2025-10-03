@@ -1,6 +1,6 @@
 # MEDiWiSE: AI-Powered Health Assistant
 
-![MEDiWiSE Homepage](static/img/hero-img.png)
+![MEDiWiSE Homepage](static/img/new-logo.png)
 
 **MEDiWiSE** is an intelligent web application designed to provide preliminary health insights using a suite of AI-powered tools. It serves as a user-friendly first step for individuals seeking information about their health, offering features from symptom-based disease prediction to AI-driven chatbots for general health queries.
 
