@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block title %}Help & Emergency - MEDiWiSE{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section-wrapper class="section-wrapper">
+  <section class="section-section">
+    <div class="section-hero">
+      <div class="section-content">
+        <main class="section-main">
+          <span class="section-caption1"><span>Wish you for a Better Health!</span></span>
+          <header class="section-header">
+            <h1 class="section-heading"><span>Medical Emergency? Call 108 Now!</span></h1>
+          </header>
+          <div class="section-buttons">
+            <div class="section-get-started1 button callnow">
+              <span class="section-text1"><span><a href="tel:108">Call now</a></span></span>
+            </div>
+            <div class="section-get-started2 button">
+              <span class="section-text2"><span><a href="{{ url_for('render_page', page_name='index.html') }}">Back to Home</a></span></span>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="service-img help-main">
+        <img alt="Emergency services illustration" src="{{ url_for('static', filename='img/helpmain.png') }}" class="section-image2" />
+      </div>
+    </div>
+  </section>
+</section-wrapper>
+
+<!-- Nearby Medical Facilities Section -->
+<section id="services" class="home-service">
+  <header class="home-header1">
+    <h2 class="home-text28">Medical help near you..</h2>
+  </header>
+  <section class="home-note2">
+    <div class="home-image3" id="hospital-map" style="width:100%; height:250px; border-radius:10px;"></div>
+    <div class="home-content2">
+      <main class="home-main3">
+        <header class="home-caption2">
+          <span class="home-section2 section-head">Nearby-Hospitals</span>
+        </header>
+        <main class="home-heading3">
+          <header class="home-header2">
+            <h2 class="section-heading">Hospitals near you.</h2>
+            <p class="section-description">Find the nearest hospitals and medical facilities in your area with ease.</p>
+          </header>
+        </main>
+      </main>
+      <div class="home-get-started2 button">
+        <button onclick="openNearbyMap('hospital')" style="font-weight: 700;">Open Map</button>
+      </div>
+    </div>
+  </section>
+  <section class="home-note2">
+    <div class="home-image3" id="pharmacy-map" style="width:100%; height:250px; border-radius:10px;"></div>
+    <div class="home-content2">
+      <main class="home-main3">
+        <header class="home-caption2">
+          <span class="home-section2 section-head">Medical-shops nearby</span>
+        </header>
+        <main class="home-heading3">
+          <header class="home-header2">
+            <h2 class="section-heading">Medical shops near you.</h2>
+            <p class="section-description">Find the nearest medical shops and pharmacies in your area with ease.</p>
+          </header>
+        </main>
+      </main>
+      <div class="home-get-started2 button">
+        <button onclick="openNearbyMap('pharmacy')" style="font-weight: 700;">Open Map</button>
+      </div>
+    </div>
+  </section>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<!-- Scripts for Google Maps functionality -->
+<script>
+  let hospitalMap, pharmacyMap;
+
+  // Initialize Google Maps
+  function initMaps() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const userLocation = { lat: position.coords.latitude, lng: position.coords.longitude };
+
+        // Hospital map
+        hospitalMap = new google.maps.Map(document.getElementById("hospital-map"), { center: userLocation, zoom: 15 });
+        new google.maps.Marker({ position: userLocation, map: hospitalMap, title: "You are here" });
+
+        // Pharmacy map
+        pharmacyMap = new google.maps.Map(document.getElementById("pharmacy-map"), { center: userLocation, zoom: 15 });
+        new google.maps.Marker({ position: userLocation, map: pharmacyMap, title: "You are here" });
+
+      }, () => {
+        alert('Unable to access your location. Please allow location access for map features.');
+      });
+    } else {
+      alert('Geolocation is not supported by your browser.');
+    }
+  }
+
+  // Function to open Google Maps with a search for nearby places
+  function openNearbyMap(placeType) {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        const url = `https://www.google.com/maps/search/${placeType}/@${lat},${lng},15z`;
+        window.open(url, '_blank');
+      });
+    } else {
+      alert('Geolocation is not available to find nearby places.');
+    }
+  }
+</script>
+
+<!-- 
+  Google Maps API Script 
+  IMPORTANT: Replace YOUR_API_KEY with your actual Google Maps API key for this feature to work.
+-->
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWEnRW_fjtecQBSUSzZeCaLrI15nHwwFE&callback=initMaps"></script>
+{% endblock %}
+

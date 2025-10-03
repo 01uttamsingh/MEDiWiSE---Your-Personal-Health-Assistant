@@ -1,0 +1,1690 @@
+/* Wrapper for the entire navbar component, used for layout structuring. */
+.navbar-wrapper {
+  display: contents;
+}
+
+/* Main container for the navigation bar. */
+.navbar-navbar {
+  width: 100%;
+  display: flex;
+  z-index: 1000; /* Ensures the navbar appears above other content. */
+  position: relative;
+  max-width: 1200px;
+  align-self: auto;
+  align-items: center;
+  flex-shrink: 1;
+  padding-top: var(--dl-layout-space-twounits);
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  padding-bottom: var(--dl-layout-space-fiveunits);
+}
+
+/* The main logo image in the navbar. */
+.navbar-image1 {
+  width: 200px;
+  object-fit: cover;
+}
+
+/* Container for all navigation elements on the right side. */
+.navbar-nav-content {
+  gap: var(--dl-layout-space-threeunits);
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes the nav content to the right. */
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* Container for the main navigation links on desktop view. */
+.navbar-nav-links1 {
+  gap: var(--dl-layout-space-threeunits);
+  display: flex;
+  align-items: flex-start;
+  border-color: transparent;
+  font-family: "Nunito", Verdana, sans-serif;
+}
+
+/* A general link style within the navbar. */
+.navbar-link1 {
+  text-decoration: none;
+}
+
+/* Specific styling for the 'HELP' link to make it stand out. */
+.navbar-link3 a{
+  color: #fd0606;
+  font-size: 18px;
+  font-family: "Comic Sans MS";
+}
+
+/* Style for the 'About Us' button text in the navbar. */
+.navbar-text1 {
+  color: black;
+  align-self: auto;
+  font-style: Medium;
+  text-align: left;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 900;
+  font-stretch: normal;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+/* The hamburger menu icon for mobile view. Hidden by default. */
+.navbar-hamburger {
+  display: none;
+}
+
+/* The image inside the hamburger menu button. */
+.navbar-image2 {
+  width: 100px;
+  object-fit: cover;
+}
+
+/* The full-screen mobile menu container. Hidden by default. */
+.navbar-mobile-menu {
+  gap: var(--dl-layout-space-twounits);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: var(--dl-layout-space-twounits);
+  z-index: 100;
+  position: fixed;
+  transform: translateX(100%); /* Slides the menu off-screen. */
+  transition: 0.3s;
+  align-items: stretch;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+/* Header section inside the mobile menu. */
+.navbar-branding {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* The logo image inside the mobile menu. */
+.navbar-image3 {
+  width: 100px;
+  filter: brightness(0) saturate(100%);
+  object-fit: cover;
+}
+
+/* Container for the close icon in the mobile menu. */
+.navbar-container1 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* The 'X' close icon for the mobile menu. */
+.navbar-icon1 {
+  width: 24px;
+  height: 24px;
+}
+
+/* Container for the navigation links in the mobile menu. */
+.navbar-nav-links2 {
+  gap: var(--dl-layout-space-unit);
+  color: var(--dl-color-gray-black);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Text style for links in the mobile menu. */
+.navbar-text2 {
+  color: rgba(255, 255, 255, 1);
+  align-self: auto;
+  font-style: Medium;
+  text-align: left;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 500;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+/* General class for navigation buttons like 'About Us'. */
+.nav {
+  display: flex;
+  background-color: #80FF44;
+}
+
+/* Hover effect for navigation buttons. */
+.nav:hover {
+  opacity: 0.9;
+  transform: translateY(-5px);
+  background-color: #4CAF50;
+}
+
+/* Style for the currently active navigation link. */
+.navbar-nav-links1 .active,
+.navbar-nav-links2 .active {
+  color: #4CAF50;
+  font-size: 20px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+/* Positions the underline effect relative to the nav link. */
+.navbar-nav-links1 .nav-link a {
+  position: relative;
+  padding-bottom: 8px;
+  text-decoration: none;
+}
+
+/* Creates the underline for the navigation link (initially hidden). */
+.navbar-nav-links1 .nav-link a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: #80FF44;
+  left: 0;
+  bottom: 0;
+  transition: width 0.5s;
+}
+
+/* Hamburger menu icon (repeated, should be consolidated). */
+.navbar-hamburger {
+  display: none;
+}
+
+/* Expands the underline on hover. */
+.navbar-nav-links1 .nav-link a:hover::after {
+  width: 100%;
+}
+
+/* Main container for the 'What We Do' section on the homepage. */
+.what-we-do-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Heading for the 'What We Do' section. */
+.what-we-do-section h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+/* Navigation bar for the feature tabs (Predict, Skin, Remedies). */
+.features-nav {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #444;
+  margin-bottom: 40px;
+}
+
+/* An individual tab in the features navigation. */
+.feature-tab {
+  flex: 1;
+  padding: 20px;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+/* Title within a feature tab. */
+.feature-tab h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* Subtitle within a feature tab. */
+.feature-tab p {
+  margin: 5px 0 0;
+  color: #aaa;
+}
+
+/* The green underline that appears under the active tab. */
+.feature-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #80FF44;
+}
+
+/* Container for the content (text and image) of a feature. Hidden by default. */
+.content-panel {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 40px;
+}
+
+/* Class to show the active feature's content panel. */
+.content-panel.active-content {
+  display: flex;
+}
+
+/* Text container within a content panel. */
+.content-panel .content-text {
+  flex: 1;
+}
+
+/* Heading within a content panel. */
+.content-panel .content-text h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Paragraph text within a content panel. */
+.content-panel .content-text p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Image container within a content panel. */
+.content-panel .content-image {
+  flex: 1;
+}
+
+/* Image within a content panel. */
+.content-panel .content-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific styling for the images in the 'What We Do' section. */
+.content-image img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-left: 150px;
+}
+
+/* The floating chat button in the bottom-right corner. */
+.chat-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: lightblue;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  z-index: 1001; /* Appears above the chat window. */
+}
+
+/* Hover effect for the chat button. */
+.chat-button:hover {
+  transform: scale(1.1);
+  background-color: #80FF44;
+}
+
+/* The icon image inside the chat button. */
+.chat-button img {
+  width: 65px;
+  height: 65px;
+}
+
+/* The chat window popup. Hidden by default. */
+.chat-window {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  height: 500px;
+  background-color: #0F0F0F;
+  border: 2px solid #51515A;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transform: scale(0); /* Hides the window by scaling it down. */
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.2, 1.5);
+  z-index: 1000;
+}
+
+/* Class to show the active chat window. */
+.chat-window.active {
+  transform: scale(1);
+}
+
+/* The iframe that contains the chat.html page. */
+.chat-window iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive styles for mobile devices (screens up to 767px wide). */
+@media(max-width: 767px) {
+  /* Adjusts navbar padding on mobile. */
+  .navbar-navbar {
+    padding-bottom: var(--dl-layout-space-fourunits);
+  }
+  /* Hides desktop navigation links. */
+  .navbar-nav-links1 {
+    display: none;
+  }
+  /* Hides the 'About Us' button on desktop. */
+  .navbar-get-started1 {
+    display: none;
+  }
+  /* Shows the hamburger menu icon on mobile. */
+  .navbar-hamburger {
+    display: flex;
+    padding-left: var(--dl-layout-space-unit);
+    padding-right: var(--dl-layout-space-unit);
+  }
+  /* Adjusts the size of the hamburger icon image. */
+  .navbar-image2 {
+    width: 16px;
+    height: 14px;
+  }
+  /* Ensures mobile menu branding takes full width. */
+  .navbar-branding {
+    width: 100%;
+  }
+  /* Styles for the links inside the opened mobile menu. */
+  .navbar-nav-links2 {
+    margin-top: var(--dl-layout-space-twounits);
+    align-items: flex-start;
+    margin-bottom: var(--dl-layout-space-twounits);
+    justify-content: center;
+  }
+}
+
+/* A wrapper for generic sections. */
+.section-wrapper {
+  display: contents;
+}
+
+/* Styling for a generic section, often used for hero/header areas. */
+.section-section {
+  width: 100%;
+  height: 80vh; /* 80% of the viewport height. */
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-color: #51515A;
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  flex-direction: column;
+  justify-content: center;
+  border-bottom-width: 1px;
+}
+
+/* Container for the hero content (text and image). */
+.section-hero {
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* The main content area (left side) of the hero section. */
+.section-content {
+  gap: var(--dl-layout-space-fiveunits);
+  width: 100%;
+  display: flex;
+  max-width: 600px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* Container for the main text elements in the hero section. */
+.section-main {
+  gap: var(--dl-layout-space-threeunits);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* The small caption text at the top of the hero section. */
+.section-caption1 {
+  color: rgb(255, 255, 255);
+  font-size: 22px;
+  font-family: "Comic Sans MS";
+  line-height: 30px;
+}
+
+/* Wrapper for the main heading in the hero section. */
+.section-header {
+  gap: var(--dl-layout-space-unit);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* The main heading text in the hero section. */
+.section-heading {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 600;
+  line-height: 60px;
+}
+
+/* Container for call-to-action buttons in the hero section. */
+.section-buttons {
+  gap: var(--dl-layout-space-unit);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* The primary call-to-action button (green). */
+.section-get-started1 {
+  display: flex;
+  background-color: #80FF44;
+}
+
+/* Text inside the primary button. */
+.section-text1 {
+  color: rgb(12, 16, 12);
+  font-size: 16px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* The secondary call-to-action button (dark). */
+.section-get-started2 {
+  background-color: #2A2A2A;
+}
+
+/* Text inside the secondary button. */
+.section-text2 {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* A container for highlighted text or small icons. */
+.section-highlight {
+  gap: var(--dl-layout-space-unit);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* A secondary caption, often smaller text. */
+.section-caption2 {
+  color: rgb(255, 255, 255);
+  font-family: "Nunito", Verdana, sans-serif;
+  line-height: 24px;
+}
+
+/* Container for the large hero image on the right. */
+.section-image1 {
+  top: 60px;
+  right: 0px;
+  width: 650px;
+  height: 900px;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Specific styling for images in the services pages. */
+.service-img {
+  top: 30px;
+  right: 30px;
+  width: 500px;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* A specific button class, likely for 'Call Now'. */
+.callnow {
+  display: flex;
+  background-color: #80FF44;
+}
+
+/* Hover effect for the 'Call Now' button. */
+.callnow:hover {
+  opacity: 0.9;
+  transform: translateY(-5px);
+  background-color: rgb(216, 53, 53);
+}
+
+/* Styles for the main image on the 'Help' page. */
+.help-main {
+  top: 40px;
+  width: 400px;
+  height: 300px;
+}
+
+/* A general image style used within sections. */
+.section-image2 {
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  object-fit: cover;
+}
+
+/* An image that is hidden by default, likely for mobile views. */
+.section-image3 {
+  display: none;
+}
+
+/* Responsive styles for tablets (screens up to 991px wide). */
+@media(max-width: 991px) {
+  /* Adjusts section height on tablets. */
+  .section-section {
+    height: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  /* Stacks hero content vertically on tablets. */
+  .section-hero {
+    gap: var(--dl-layout-space-fourunits);
+    flex: 1;
+    position: relative;
+    max-width: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* Centers hero content. */
+  .section-content {
+    position: relative;
+    align-items: center;
+  }
+  .section-main {
+    align-items: center;
+  }
+  .section-caption1 {
+    text-align: left;
+  }
+  .section-heading {
+    text-align: left;
+  }
+  /* Makes buttons take full width. */
+  .section-buttons {
+    width: 100%;
+  }
+  .section-get-started1 {
+    flex: 1;
+  }
+  .section-get-started2 {
+    flex: 1;
+  }
+  .section-highlight {
+    width: 100%;
+    flex-direction: column;
+  }
+  /* Hides the large desktop hero image. */
+  .section-image1 {
+    right: 0px;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+  }
+  /* Shows a different hero image for tablets/mobile. */
+  .section-image3 {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+  /* Specific size for the tablet hero image. */
+  .section-image4 {
+    width: 600px;
+  }
+}
+
+/* Responsive styles for smaller tablets and large phones (screens up to 767px). */
+@media(max-width: 767px) {
+  .section-content {
+    gap: var(--dl-layout-space-threeunits);
+    padding-left: var(--dl-layout-space-oneandhalfunits);
+    padding-right: var(--dl-layout-space-oneandhalfunits);
+  }
+  .section-caption1 {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: "Nunito", Verdana, sans-serif;
+    line-height: 24px;
+  }
+  .section-heading {
+    font-size: 30px;
+  }
+  .section-get-started1 {
+    padding-top: var(--dl-layout-space-unit);
+    padding-bottom: var(--dl-layout-space-unit);
+  }
+  /* Hides the secondary button on smaller screens. */
+  .section-get-started2 {
+    display: none;
+  }
+  .section-caption2 {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  /* Adjusts image size for smaller screens. */
+  .section-image4 {
+    width: 500px;
+  }
+}
+
+/* Responsive styles for mobile phones (screens up to 479px). */
+@media(max-width: 479px) {
+  .section-header {
+    align-items: flex-start;
+  }
+  .section-heading {
+    max-width: 280px;
+  }
+  .section-image4 {
+    width: 400px;
+  }
+}
+
+/* A wrapper for the 'What We Do' component. */
+.what-we-do-wrapper {
+  display: contents;
+}
+
+/* The main container for the 'What We Do' section. */
+.what-we-do-what-we-do {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding-top: 120px;
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  flex-direction: column;
+  padding-bottom: 120px;
+  justify-content: center;
+}
+
+/* Heading text for the 'What We Do' section. */
+.what-we-do-text10 {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 600;
+}
+
+/* Container for the features tabs. */
+.what-we-do-features {
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  margin-top: var(--dl-layout-space-fiveunits);
+  align-items: center;
+  user-select: none;
+  border-color: #5A5A5A;
+  margin-bottom: 120px;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom-width: 1px;
+}
+
+/* Styles for text within the features tabs. */
+.what-we-do-text11, .what-we-do-text13, .what-we-do-text15 {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 600;
+}
+
+.what-we-do-text12, .what-we-do-text14, .what-we-do-text16 {
+  color: rgb(121, 124, 128);
+  font-family: "Nunito", Verdana, sans-serif;
+}
+
+/* Container for the note/description section below the features. */
+.what-we-do-note {
+  gap: 140px;
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Content (text) part of the note section. */
+.what-we-do-content {
+  gap: var(--dl-layout-space-threeunits);
+  flex: 1;
+  display: flex;
+  max-width: 520px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Main text wrapper inside the content section. */
+.what-we-do-main {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Heading for the note section. */
+.what-we-do-heading {
+  color: rgb(255, 255, 255);
+  font-size: 32px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 500;
+}
+
+/* Paragraph text in the note section. */
+.what-we-do-paragraph1 {
+  color: rgb(204, 204, 204);
+  align-self: flex-start;
+  font-family: "Nunito", Verdana, sans-serif;
+  line-height: 28px;
+}
+
+/* The 'Explore More' link. */
+.what-we-do-explore-more {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  cursor: pointer;
+  display: flex;
+  transition: 0.3s;
+  align-items: center;
+  border-color: #80FF44;
+  flex-direction: column;
+  padding-bottom: var(--dl-layout-space-halfunit);
+  justify-content: center;
+  border-bottom-width: 1px;
+}
+
+/* Hover effect for the 'Explore More' link. */
+.what-we-do-explore-more:hover {
+  opacity: 0.5;
+}
+
+/* Text inside the 'Explore More' link. */
+.what-we-do-text17 {
+  color: rgb(128, 255, 68);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* Image container for the note section. */
+.what-we-do-image1 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* The image itself in the note section. */
+.what-we-do-image2 {
+  object-fit: cover;
+}
+
+/* Responsive styles for tablets. */
+@media(max-width: 991px) {
+  .what-we-do-text10 {
+    text-align: center;
+  }
+  /* Stacks note content vertically. */
+  .what-we-do-note {
+    gap: var(--dl-layout-space-fourunits);
+    flex-direction: column;
+  }
+  .what-we-do-content {
+    max-width: 100%;
+  }
+  .what-we-do-main {
+    align-items: flex-start;
+  }
+}
+
+/* Responsive styles for mobile. */
+@media(max-width: 767px) {
+  .what-we-do-what-we-do {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .what-we-do-text10 {
+    font-size: 32px;
+    text-align: center;
+  }
+  /* Stacks feature tabs vertically. */
+  .what-we-do-features {
+    gap: var(--dl-layout-space-oneandhalfunits);
+    margin-top: var(--dl-layout-space-threeunits);
+    border-color: #5A5A5A;
+    margin-bottom: var(--dl-layout-space-threeunits);
+    flex-direction: column;
+  }
+  .what-we-do-feature1, .what-we-do-feature2, .what-we-do-feature3 {
+    width: 100%;
+    padding-bottom: var(--dl-layout-space-unit);
+  }
+  .what-we-do-feature2 {
+    border-color: #5A5A5A;
+    border-bottom-width: 1px;
+  }
+  .what-we-do-text11, .what-we-do-text13, .what-we-do-text15 {
+    font-size: 20px;
+  }
+  .what-we-do-note {
+    gap: var(--dl-layout-space-threeunits);
+  }
+  .what-we-do-main {
+    width: 100%;
+    align-items: flex-start;
+  }
+  .what-we-do-heading {
+    font-size: 28px;
+  }
+  .what-we-do-paragraph1, .home-paragraph1 {
+    line-height: 24px;
+  }
+}
+
+@media(max-width: 479px) {
+  .what-we-do-image2 {
+    width: 100%;
+  }
+}
+
+/* Wrapper for the FAQ component. */
+.faq-wrapper {
+  display: contents;
+}
+
+/* The main container for the accordion-style FAQ. */
+.faq-accordion {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* A single FAQ item (question and answer). */
+.faq-element1, .faq-element2, .faq-element3, .faq-element4, .faq-element5, .faq-element6 {
+  width: 100%;
+  max-width: 800px;
+  padding-top: var(--dl-layout-space-threeunits);
+  padding-bottom: var(--dl-layout-space-threeunits);
+}
+
+/* Container for the text inside a single FAQ item. */
+.faq-details1, .faq-details2, .faq-details3, .faq-details4, .faq-details5, .faq-details6 {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The question text in an FAQ item. */
+.faq-text10, .faq-text12, .faq-text14, .faq-text16, .faq-text18, .faq-text20 {
+  color: rgb(255, 255, 255);
+  width: 100%;
+  font-size: 20px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+/* The answer text in an FAQ item. */
+.faq-text11, .faq-text13, .faq-text15, .faq-text17, .faq-text19, .faq-text21 {
+  color: rgb(204, 204, 204);
+  width: 100%;
+  font-family: "Nunito", Verdana, sans-serif;
+  line-height: 24px;
+  user-select: text;
+}
+
+/* The dropdown icon for the FAQ item. */
+.faq-icon10, .faq-icon12, .faq-icon14, .faq-icon16, .faq-icon18, .faq-icon20 {
+  fill: var(--dl-color-gray-white);
+  width: var(--dl-layout-size-xsmall);
+  height: var(--dl-layout-size-xsmall);
+}
+
+@media(max-width: 767px) {
+  /* Adjusts font size for FAQ questions on mobile. */
+  .faq-text10, .faq-text12, .faq-text14, .faq-text16, .faq-text18, .faq-text20 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/* Wrapper for a card component. */
+.card-wrapper, .card-wrapper-rkrw, .card-wrapper-ixt3 {
+  display: contents;
+}
+
+/* The main container for a card (used for Team Members). */
+.card-card, .card-card1, .card-card2 {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  flex: 1;
+  display: flex;
+  padding: var(--dl-layout-space-threeunits);
+  position: relative;
+  align-items: flex-start;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #292929;
+}
+
+/* The circular icon container at the top of a card. */
+.card-icon1, .card-icon3, .card-icon5 {
+  display: flex;
+  padding: var(--dl-layout-space-unit);
+  align-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #80FF44;
+}
+
+/* The image inside the card icon. */
+.card-icon2, .card-icon4, .card-icon6 {
+  height: 30px;
+  object-fit: cover;
+}
+
+/* Container for the text content of a card. */
+.card-content, .card-content1, .card-content2 {
+  gap: var(--dl-layout-space-halfunit);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* The header/title of a card. */
+.card-header, .card-header1, .card-header2 {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+/* The description text of a card. */
+.card-description, .card-description1, .card-description2 {
+  color: rgb(194, 198, 204);
+  font-family: "Nunito", Verdana, sans-serif;
+  line-height: 28px;
+}
+
+/* Root class names for specific card instances (team members). */
+@media(max-width: 991px) {
+  .cardroot-class-name, .cardroot-class-name1, .cardroot-class-name2 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+/* Wrapper for the footer component. */
+.footer-wrapper {
+  display: contents;
+}
+
+/* The main footer container. */
+.footer-footer {
+  gap: var(--dl-layout-space-fiveunits);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding-top: 120px;
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  flex-direction: column;
+  padding-bottom: var(--dl-layout-space-threeunits);
+  justify-content: center;
+}
+
+/* Container for the main footer content (logo, links, subscribe). */
+.footer-content1 {
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* A sub-container within the main footer content. */
+.footer-main-content {
+  gap: var(--dl-layout-space-fiveunits);
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* A secondary sub-container, holding logo and link categories. */
+.footer-content2 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* The section with the logo, description, and social icons. */
+.footer-main1 {
+  gap: var(--dl-layout-space-threeunits);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header within the main footer section. */
+.footer-header1 {
+  gap: var(--dl-layout-space-unit);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The footer logo image. */
+.footer-image {
+  width: 200px;
+  object-fit: cover;
+}
+
+/* The small text description under the footer logo. */
+.footer-text10 {
+  color: rgb(255, 255, 255);
+  width: 100%;
+  font-size: 14px;
+  max-width: 260px;
+  font-family: "Nunito", Verdana, sans-serif;
+  line-height: 21px;
+}
+
+/* Container for social media icons. */
+.footer-socials {
+  gap: var(--dl-layout-space-unit);
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+/* Wrappers for individual social media links. */
+.footer-link1, .footer-link2, .footer-link3 {
+  display: contents;
+}
+
+/* Container for the link categories (Solutions, Company). */
+.footer-categories {
+  gap: var(--dl-layout-space-fourunits);
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* An individual category of links. */
+.footer-category1, .footer-category2 {
+  gap: var(--dl-layout-space-unit);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header for a link category. */
+.footer-header2, .footer-header3 {
+  gap: var(--dl-layout-space-unit);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Container for the links within a category. */
+.footer-links1, .footer-links2 {
+  gap: var(--dl-layout-space-unit);
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Copyright section in the footer (for desktop). */
+.footer-copyright1 {
+  gap: var(--dl-layout-space-fiveunits);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The copyright text. */
+.footer-text20, .footer-text23 {
+  color: #C4C4C4;
+  width: 100%;
+  font-size: 14px;
+  font-family: "Nunito", Verdana, sans-serif;
+  line-height: 21px;
+}
+
+/* The 'subscribe' or 'mail us' section of the footer. */
+.footer-subscribe {
+  gap: var(--dl-layout-space-unit);
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Main wrapper for the subscribe content. */
+.footer-main2 {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Heading for the subscribe section. */
+.footer-heading {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  max-width: 275px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+/* The input field and button container. */
+.footer-input-field {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  display: flex;
+  padding: var(--dl-layout-space-halfunit);
+  align-items: center;
+  border-radius: 50px;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #292929;
+}
+
+/* The email input text field. */
+.footer-textinput {
+  flex: 1;
+  color: #ffffff;
+  height: 24px;
+  line-height: 24px;
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  outline-style: none;
+  background-color: rgba(217, 217, 217, 0);
+}
+
+/* The 'Mail Now' button. */
+.footer-buy {
+  display: flex;
+  padding-top: var(--dl-layout-space-unit);
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  padding-bottom: var(--dl-layout-space-unit);
+  background-color: #80FF44;
+}
+
+/* Text inside the button (arrow, hidden on some views). */
+.footer-text21 {
+  color: rgb(12, 16, 12);
+  display: none;
+  font-size: 16px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* Text inside the button ('Mail Now'). */
+.footer-text22 {
+  color: rgb(12, 16, 12);
+  display: flex;
+  font-size: 16px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* The notice text below the subscribe form. */
+.footer-notice {
+  color: #686868;
+  font-size: 14px;
+  max-width: 400px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+/* Copyright section for mobile view (initially hidden). */
+.footer-copyright2 {
+  gap: var(--dl-layout-space-fiveunits);
+  flex: 1;
+  width: 100%;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media(max-width: 991px) {
+  /* Stacks footer content vertically on tablets. */
+  .footer-content1 {
+    gap: var(--dl-layout-space-threeunits);
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  /* Hides desktop copyright and shows mobile one. */
+  .footer-copyright1 {
+    display: none;
+  }
+  .footer-copyright2 {
+    display: flex;
+  }
+}
+
+@media(max-width: 767px) {
+  /* Stacks footer sections vertically on mobile. */
+  .footer-content2 {
+    gap: var(--dl-layout-space-threeunits);
+    flex-direction: column;
+  }
+  .footer-main1 {
+    gap: var(--dl-layout-space-twounits);
+  }
+  .footer-categories {
+    gap: var(--dl-layout-space-twounits);
+    flex-direction: column;
+  }
+  .footer-text22, .home-text36 {
+    color: rgb(12, 16, 12);
+    font-size: 16px;
+    font-style: normal;
+    font-family: "Nunito", Verdana, sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+@media(max-width: 479px) {
+  .footer-textinput {
+    flex: 1;
+  }
+  /* Swaps which text/icon is visible in the subscribe button. */
+  .footer-text21 {
+    color: rgb(12, 16, 12);
+    display: flex;
+    font-size: 24px;
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  .footer-text22, .home-text36 {
+    color: rgb(12, 16, 12);
+    display: none;
+    font-size: 24px;
+    font-style: normal;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 24px;
+  }
+}
+
+/* The main container for the entire page. */
+.home-container1 {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  align-items: center;
+  flex-direction: column;
+  background-color: #0F0F0F;
+}
+
+/* Container for the 'Services' section. */
+.home-service {
+  gap: var(--dl-layout-space-sixunits);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: var(--dl-layout-space-twounits);
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  flex-direction: column;
+  padding-bottom: 120px;
+  justify-content: center;
+}
+
+/* Header for the 'Services' section. */
+.home-header1 {
+  gap: var(--dl-layout-space-unit);
+  width: 100%;
+  display: flex;
+  max-width: 900px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Heading text for the 'Services' section. */
+.home-text28 {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 600;
+}
+
+/* A single service item/note container. */
+.home-note1, .home-note2, .home-note3 {
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.home-note2 {
+  flex-direction: row-reverse;
+}
+
+/* Image container for a service item. */
+.home-image1, .home-image3, .home-image5 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Image within a service item. */
+.home-image2, .home-image4, .home-image6 {
+  object-fit: cover;
+}
+
+/* Content (text) container for a service item. */
+.home-content1, .home-content2, .home-content3 {
+  gap: var(--dl-layout-space-threeunits);
+  flex: 1;
+  display: flex;
+  max-width: 600px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Main text wrapper for a service item. */
+.home-main2, .home-main3, .home-main4 {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Caption container for a service item. */
+.home-caption1, .home-caption2, .home-caption3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Heading container for a service item. */
+.home-heading1, .home-heading3, .home-heading5 {
+  gap: var(--dl-layout-space-unit);
+  width: 100%;
+  display: flex;
+  max-width: 600px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Button for a service item. */
+.home-get-started1, .home-get-started2, .home-get-started3 {
+  display: flex;
+  background-color: #80FF44;
+}
+
+/* Text inside the service item button. */
+.home-text29, .home-text30, .home-text31 {
+  color: rgb(12, 16, 12);
+  font-size: 18px;
+  font-style: normal;
+  font-family: "Nunito", Verdana, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* Specific caption styling for the second service item. */
+.home-section2 {
+  color: rgb(198, 255, 75);
+}
+
+/* Secondary header for service items. */
+.home-header2 {
+  gap: var(--dl-layout-space-unit);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Centered heading style. */
+.home-heading7 {
+  text-align: center;
+}
+
+/* Container for the accordion component in the FAQ. */
+.home-accordion {
+  gap: var(--dl-layout-space-threeunits);
+  width: 100%;
+  display: flex;
+  max-width: 800px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Container for the 'Team' section. */
+.home-section6 {
+  gap: var(--dl-layout-space-fiveunits);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  border-color: #51515A;
+  padding-left: var(--dl-layout-space-oneandhalfunits);
+  padding-right: var(--dl-layout-space-oneandhalfunits);
+  flex-direction: column;
+  padding-bottom: 120px;
+  justify-content: center;
+  border-top-width: 1px;
+}
+
+/* Header for the 'Team' section. */
+.home-header4 {
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Left side of the team header (text). */
+.home-left {
+  gap: var(--dl-layout-space-oneandhalfunits);
+  width: 100%;
+  display: flex;
+  max-width: 600px;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Right side of the team header (decorative). */
+.home-right {
+  gap: var(--dl-layout-space-unit);
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Container for the team member cards. */
+.home-cards {
+  gap: var(--dl-layout-space-threeunits);
+  width: 100%;
+  display: flex;
+  max-width: 1200px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* A floating banner, possibly a "Made with..." badge. */
+.home-container4 {
+  right: 50px;
+  border: 1px solid #ffffff5c;
+  bottom: 30px;
+  display: flex;
+  z-index: 22;
+  position: fixed;
+  box-shadow: 5px 5px 10px 0px rgba(31, 31, 31, 0.4);
+  min-height: auto;
+  align-items: center;
+  padding-top: 8px;
+  padding-left: 12px;
+  border-radius: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(41, 41, 41, 0.41);
+}
+
+/* Icon within the floating banner. */
+.home-icon1 {
+  width: 24px;
+  margin-right: 4px;
+}
+
+/* Text within the floating banner. */
+.home-text54 {
+  color: white;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@media(max-width: 991px) {
+  .home-text28 {
+    text-align: center;
+  }
+  .home-section6 {
+    gap: var(--dl-layout-space-threeunits);
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .home-header4 {
+    gap: var(--dl-layout-space-unit);
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  /* Stacks team cards vertically on tablets. */
+  .home-cards {
+    gap: var(--dl-layout-space-oneandhalfunits);
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 767px) {
+  .home-paragraph1 {
+    line-height: 24px;
+  }
+  .home-service {
+    gap: var(--dl-layout-space-fourunits);
+    padding-bottom: var(--dl-layout-space-twounits);
+  }
+  .home-text28 {
+    font-size: 32px;
+    text-align: center;
+  }
+  /* Stacks service items vertically on mobile. */
+  .home-note1, .home-note2, .home-note3 {
+    flex-direction: column-reverse;
+  }
+  .home-left {
+    gap: var(--dl-layout-space-unit);
+  }
+}

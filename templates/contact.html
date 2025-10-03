@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact Us - MEDiWiSE{% endblock %}
+
+{% block styles %}
+<!-- Internal Styles for Contact Form -->
+<style>
+  .contact-section-wrapper { background-color: #0F0F0F; padding: 120px var(--dl-layout-space-oneandhalfunits); color: white; }
+  .contact-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+  .form-container, .image-container { flex: 1; }
+  .image-container { display: flex; justify-content: center; align-items: center; }
+  .image-container img { max-width: 100%; height: auto; border-radius: 15px; }
+  .contact-header { text-align: left; margin-bottom: 40px; }
+  .contact-header h2 { font-size: 40px; font-family: 'Poppins', sans-serif; font-weight: 600; margin-bottom: 15px; }
+  .contact-header p { font-size: 16px; color: #a0a0a0; line-height: 1.6; }
+  .contact-form { display: flex; flex-direction: column; gap: 20px; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+  .contact-form input, .contact-form textarea { width: 100%; padding: 15px 20px; background-color: #292929; border: 1px solid #51515A; border-radius: 8px; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 16px; transition: border-color 0.3s ease; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: #888; }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #80FF44; border-width: 2px; }
+  .contact-form textarea { resize: vertical; }
+  .submit-button { padding: 15px 30px; border: none; border-radius: 8px; background-color: #80FF44;  font-size: 18px; font-weight: 600; font-family: 'Poppins', sans-serif; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; align-self: flex-start; }
+  .submit-button:hover { background-color: #FF0066; transform: translateY(-3px); }
+  @media(max-width: 991px) { .contact-container { flex-direction: column; gap: 40px; } .contact-header { text-align: center; } .submit-button { align-self: center; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Contact Form Section -->
+<section id="contact" class="contact-section-wrapper">
+  <div class="contact-container">
+    <div class="form-container">
+      <header class="contact-header">
+        <h2>Get in Touch</h2>
+        <p>Have a question, feedback, or need support? Fill out the form below and we'll get back to you as soon as possible.</p>
+      </header>
+      <form action="#" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="name" class="visually-hidden">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email" class="visually-hidden">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required>
+        </div>
+        <div class="form-group">
+          <label for="message" class="visually-hidden">Your Messages</label>
+          <textarea id="message" name="message" rows="6" placeholder="Your Messages" required></textarea>
+        </div>
+        <button type="submit" class="submit-button" style="color: #0F0F0F;">Submit</button>
+      </form>
+    </div>
+    <div class="image-container">
+      <img src="{{ url_for('static', filename='img/aboutus-doc.png') }}" alt="Medical professional illustration">
+    </div>
+  </div>
+</section>
+{% endblock %}
+

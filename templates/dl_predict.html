@@ -1,0 +1,458 @@
+{% extends "layout.html" %}
+
+{% block title %}Skin Disease Prediction - MEDiWiSE{% endblock %}
+
+{% block styles %}
+<!-- Internal Styles for Prediction & "How it Works" Sections -->
+<style>
+  .skin-prediction-wrapper {
+    background-color: #0F0F0F;
+    padding: 100px var(--dl-layout-space-oneandhalfunits);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .skin-prediction-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .skin-prediction-header {
+    margin-bottom: 50px;
+  }
+
+  .skin-prediction-header h2 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .skin-prediction-header p {
+    font-size: 16px;
+    color: #a0a0a0;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .prediction-content-area {
+    display: flex;
+    gap: 40px;
+    text-align: left;
+  }
+
+  .image-uploader-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-preview-box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #1A1A1A;
+    border: 2px dashed #51515A;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .image-preview {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .preview-placeholder {
+    color: #a0a0a0;
+    text-align: center;
+  }
+
+  .preview-placeholder svg {
+    stroke: #51515A;
+    margin-bottom: 10px;
+  }
+
+  .upload-button {
+    background-color: #80FF44;
+    color: #0F0F0F;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .upload-button:hover {
+    background-color: #6ee02a;
+    transform: translateY(-3px);
+  }
+
+  .results-container {
+    flex: 1.2;
+    background-color: #1A1A1A;
+    border: 1px solid #51515A;
+    border-radius: 15px;
+    padding: 30px;
+  }
+
+  .results-tabs {
+    display: flex;
+    border-bottom: 1px solid #51515A;
+    margin-bottom: 25px;
+  }
+
+  .tab-link {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  .tab-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #80FF44;
+    transition: width 0.4s ease-out;
+  }
+
+  .tab-link.active {
+    color: #ffffff;
+  }
+
+  .tab-link.active::after {
+    width: 100%;
+  }
+
+  .tab-panel {
+    display: none;
+  }
+
+  .tab-panel.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .results-content h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .placeholder-text {
+    color: #a0a0a0;
+    font-size: 16px;
+  }
+
+  .precaution-list {
+    list-style-type: none; /* No default bullet */
+    padding-left: 5px;
+    color: #ccc;
+  }
+
+  .precaution-list li {
+    margin-bottom: 12px;
+    padding-left: 20px; /* Space for the custom bullet */
+    line-height: 1.6;
+    position: relative;
+  }
+  
+  /* Custom bullet point style */
+  .precaution-list li::before {
+      content: '•';
+      color: #80FF44; /* Accent color */
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+  }
+
+
+  .prediction-result h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #ccc;
+  }
+
+  .prediction-result h4 span {
+    color: #80FF44;
+    font-weight: 600;
+  }
+
+  @media (max-width: 991px) {
+    .prediction-content-area {
+      flex-direction: column;
+    }
+  }
+
+  #how-skin-ai-works {
+    background-color: #0F0F0F;
+    color: #E0E0E0;
+    padding: 100px var(--dl-layout-space-oneandhalfunits);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .how-it-works-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  #how-skin-ai-works h2 {
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+  }
+
+  #how-skin-ai-works p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+
+  .model-scope {
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #51515A;
+  }
+
+  .disclaimer {
+    text-align: center;
+    margin-top: 30px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section-wrapper class="section-wrapper">
+  <section class="section-section">
+    <div class="section-hero">
+      <div class="section-content">
+        <main class="section-main">
+          <span class="section-caption1"><span>Wish you for a Better Health!</span></span>
+          <header class="section-header">
+            <h1 class="section-heading"><span>Upload the photo and see the result.</span></h1>
+          </header>
+          <div class="section-buttons">
+            <div class="section-get-started1 button callnow">
+              <span class="section-text1"><span><a href="#skin-prediction-section">Upload</a></span></span>
+            </div>
+            <div class="section-get-started2 button">
+              <span class="section-text2"><span><a href="{{ url_for('render_page', page_name='index.html') }}">Back to Home</a></span></span>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="service-img help-main">
+        <img alt="Skin disease prediction illustration" src="{{ url_for('static', filename='img/dl_predict.png') }}"
+          class="section-image2" style="margin-right: 130px ;" />
+      </div>
+    </div>
+  </section>
+</section-wrapper>
+
+<!-- Skin Disease Prediction Section -->
+<section id="skin-prediction-section" class="skin-prediction-wrapper">
+  <div class="skin-prediction-container">
+    <header class="skin-prediction-header">
+      <h2>Skin Disease Prediction</h2>
+      <p>Upload a clear image of the affected skin area. Our AI model will analyze it to suggest potential
+        conditions. This is not a medical diagnosis.</p>
+    </header>
+    <div class="prediction-content-area">
+      <div class="image-uploader-container">
+        <div class="image-preview-box" id="image-preview-box">
+          <img src="" alt="Image Preview" class="image-preview" id="image-preview">
+          <span class="preview-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <p>Your image will appear here</p>
+          </span>
+        </div>
+        <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+        <button type="button" class="upload-button"
+          onclick="document.getElementById('image-upload-input').click();">Upload Photo</button>
+      </div>
+      <div class="results-container">
+        <nav class="results-tabs">
+          <button class="tab-link active" data-target="prediction-content">Prediction</button>
+          <button class="tab-link" data-target="precaution-content">Precautions</button>
+        </nav>
+        <div class="results-content">
+          <div id="prediction-content" class="tab-panel active">
+            <h3>Analysis Result</h3>
+            <p class="placeholder-text">Once you upload an image, the predicted condition and confidence score will
+              be displayed here.</p>
+            <div class="prediction-result" style="display: none;">
+              <h4>Predicted Condition: <span id="disease-name"></span></h4>
+              <h4>Confidence Score: <span id="confidence-score"></span></h4>
+            </div>
+          </div>
+          <div id="precaution-content" class="tab-panel">
+            <h3>Precautions</h3>
+            <p class="placeholder-text">Precautions for the predicted condition will be listed here after analysis.</p>
+            <ul id="precaution-list" class="precaution-list" style="display: none;">
+              <!-- Precautions will be dynamically inserted here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-skin-ai-works">
+  <div class="how-it-works-container">
+    <h2>How Our AI Skin Disease Predictor Works?</h2>
+    <p>Our tool uses a powerful AI model specifically trained to identify potential skin conditions from images.
+      Here’s a simple breakdown of the process:</p>
+    <p><strong>1. You Upload an Image:</strong> Simply provide a clear, well-lit photo of the affected skin area.
+    </p>
+    <p><strong>2. AI Image Analysis:</strong> Our system, which has been trained on a massive dataset, instantly analyzes your photo. It compares the visual patterns in your image against the 7 types of skin lesions it has learned to recognize.</p>
+    <p><strong>3. Instant Results & Precautions:</strong> Based on its analysis, the AI identifies the most likely
+      condition. It then provides you with the result, a confidence score, and a list of helpful precautions you can
+      view in the next tab.</p>
+    <p class="model-scope">The model is trained to recognize the following conditions: Melanocytic Nevus,
+      Melanoma, Basal Cell Carcinoma, Actinic Keratosis, Benign Keratosis, Dermatofibroma, and Vascular Lesion.</p>
+    <p class="disclaimer"><span style="color: #fd0606; font-weight: 600;">Important Disclaimer:</span> This tool is
+      for informational purposes only and is not a substitute for professional medical advice. Visual analysis by AI
+      can be a helpful guide, but you must always consult a qualified dermatologist for an accurate diagnosis.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const imageInput = document.getElementById('image-upload-input');
+    const imagePreview = document.getElementById('image-preview');
+    const placeholder = document.querySelector('.preview-placeholder');
+    const diseaseNameSpan = document.getElementById('disease-name');
+    const confidenceScoreSpan = document.getElementById('confidence-score');
+    const predictionResultDiv = document.querySelector('.prediction-result');
+    
+    // Get references to precaution tab elements
+    const precautionPlaceholder = document.querySelector('#precaution-content .placeholder-text');
+    const precautionList = document.getElementById('precaution-list');
+
+    imageInput.addEventListener('change', async function () {
+      const file = this.files[0];
+      if (!file) return;
+
+      // Show image preview
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        placeholder.style.display = 'none';
+        imagePreview.style.display = 'block';
+        imagePreview.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+
+      // --- Reset UI for new prediction ---
+      document.querySelector('#prediction-content .placeholder-text').style.display = 'none';
+      predictionResultDiv.style.display = 'block';
+      diseaseNameSpan.textContent = "Analyzing...";
+      confidenceScoreSpan.textContent = "...";
+      
+      precautionPlaceholder.style.display = 'block';
+      precautionPlaceholder.textContent = 'Analyzing...'; // Show analyzing state in precautions tab as well
+      precautionList.style.display = 'none';
+      precautionList.innerHTML = '';
+
+      const formData = new FormData();
+      formData.append('image', file);
+
+      try {
+        const response = await fetch('/api/predict_skin', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json();
+
+        if (data.error) {
+          diseaseNameSpan.textContent = "Prediction Failed";
+          confidenceScoreSpan.textContent = "N/A";
+          precautionPlaceholder.textContent = data.error;
+        } else {
+          // Update Prediction Tab
+          diseaseNameSpan.textContent = data.disease;
+          confidenceScoreSpan.textContent = data.confidence;
+
+          // Update Precaution Tab
+          precautionPlaceholder.style.display = 'none';
+          precautionList.style.display = 'block';
+          
+          if (data.precautions === "Nothing to be display") {
+            precautionList.innerHTML = `<li>${data.precautions}</li>`;
+            // Remove the bullet point for this specific message
+            precautionList.querySelector('li').style.listStyleType = 'none';
+            precautionList.querySelector('li').style.paddingLeft = '0';
+            precautionList.querySelector('li').style.marginLeft = '-1em';
+          } else if (Array.isArray(data.precautions)) {
+            data.precautions.forEach(p => {
+              const li = document.createElement('li');
+              li.textContent = p;
+              precautionList.appendChild(li);
+            });
+          } else {
+             precautionList.innerHTML = `<li>No specific precautions found.</li>`;
+          }
+        }
+      } catch (error) {
+        console.error("Fetch Error:", error);
+        diseaseNameSpan.textContent = "Connection Error";
+        confidenceScoreSpan.textContent = "N/A";
+        precautionPlaceholder.textContent = 'Could not connect to the server.';
+      }
+    });
+
+    // Tab Switching Logic (no changes needed)
+    const tabs = document.querySelectorAll('.tab-link');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        const targetPanel = document.getElementById(tab.dataset.target);
+        if (targetPanel) targetPanel.classList.add('active');
+      });
+    });
+  });
+</script>
+{% endblock %}
+

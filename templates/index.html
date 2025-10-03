@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+
+{% block title %}MEDiWiSE - HOMEpage{% endblock %}
+
+{% block content %}
+<!-- Heading section starts from here-----------------------------  -->
+<section-wrapper class="section-wrapper">
+  <section class="section-section" id="home">
+    <div class="section-hero">
+      <div class="section-content">
+        <main class="section-main">
+          <span class="section-caption1">
+            <span class="home-text12">Welcome, Wish you for a Better Health!</span>
+          </span>
+          <header class="section-header">
+            <h1 class="section-heading">
+              <span class="home-text13">An AI-Powered Health Assistant for your Instant Needs</span>
+            </h1>
+          </header>
+          <div class="section-buttons">
+            <div class="section-get-started1 button">
+              <span class="section-text1">
+                <span class="home-text10"><a href="#whatwedo">Know more</a></span>
+              </span>
+            </div>
+            <div class="section-get-started2 button">
+              <span class="section-text2">
+                <span class="home-text11"><a href="{{ url_for('render_page', page_name='services.html') }}">Services</a></span>
+              </span>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="section-image1">
+        <img alt="Doctor with AI interface" src="{{ url_for('static', filename='img/hero-img.png') }}" class="section-image2" />
+      </div>
+      <div class="section-image3">
+        <img alt="Doctor with AI interface" src="{{ url_for('static', filename='img/hero-img.png') }}" class="section-image4" />
+      </div>
+    </div>
+  </section>
+</section-wrapper>
+
+<br><br><br><br><br><br><br><br>
+
+<!-- What we do section starts from here------------------------------   -->
+<what-we-do-wrapper class="what-we-do-wrapper">
+  <section class="what-we-do-section" id="whatwedo">
+    <h2>What we Do?</h2>
+    <nav class="features-nav">
+      <div class="feature-tab active" data-target="predict-disease">
+        <h3>Predict your Disease</h3>
+        <p>Symptom based Prediction</p>
+      </div>
+      <div class="feature-tab" data-target="skin-prediction">
+        <h3>Skin-Disease Prediction</h3>
+        <p>Predict skin disease using image</p>
+      </div>
+      <div class="feature-tab" data-target="remedies">
+        <h3>Remedies at Home</h3>
+        <p>Give your disease name and read your remedies</p>
+      </div>
+    </nav>
+    <div class="features-content">
+      <div class="content-panel active-content" id="predict-disease">
+        <div class="content-text">
+          <h3>Predict Your Disease</h3>
+          <p>Just enter your symptoms, and our system will predict a possible disease and suggest precautions you should take. It also displays the accuracy of the prediction, as it is powered by a machine learning model trained on real datasets.</p>
+          <p><span style="color: red; font-weight: 300;">Please note:</span> predictions may not always be accurate. Always consult a doctor—either by calling or visiting a hospital. This is a helpful guidance system, not a medical diagnosis.</p>
+        </div>
+        <div class="content-image">
+          <img src="{{ url_for('static', filename='img/predict_img.png') }}" alt="Symptom Prediction Interface">
+        </div>
+      </div>
+      <div class="content-panel" id="skin-prediction">
+        <div class="content-text">
+          <h3>Skin-Disease Prediction</h3>
+          <p>This system uses a deep learning model trained on 7 common types of diseases. It predicts a possible disease based on your symptoms and provides precautions you can take. Please note: this is not a medical diagnosis. Always consult a doctor for accurate advice.</p>
+          <p><span style="color: red; font-weight: 300;">Disclaimer:</span> This is an AI-powered prediction and not a substitute for professional medical advice. Please consult a dermatologist for an accurate diagnosis.</p>
+        </div>
+        <div class="content-image">
+          <img src="{{ url_for('static', filename='img/skin_disease.png') }}" alt="Skin Disease Prediction Interface">
+        </div>
+      </div>
+      <div class="content-panel" id="remedies">
+        <div class="content-text">
+          <h3>Remedies at Home</h3>
+          <p>Just enter the name of the disease, and the system will provide home remedies for quick relief. Please note: these remedies are for temporary comfort and do not replace professional medical advice. Always consult a doctor for proper treatment.</p>
+          <p><span style="color: red; font-weight: 300;">Important:</span> These remedies are for mild symptoms and supplementary care. They are not a cure. Always consult a healthcare provider for serious medical issues.</p>
+        </div>
+        <div class="content-image">
+          <img src="{{ url_for('static', filename='img/remedies_service.png') }}" alt="Home Remedies Interface">
+        </div>
+      </div>
+    </div>
+  </section>
+</what-we-do-wrapper>
+
+<!-- Team section starts from here------------------------------ -->
+<section id="team" class="home-section6">
+  <header class="home-header4">
+    <header class="home-left">
+      <span class="section-head">Our TEAM</span>
+      <h2 class="section-heading">Meet our Team Members</h2>
+    </header>
+    <div class="home-right"></div>
+  </header>
+  <main class="home-cards">
+    <card-wrapper class="card-wrapper" rootclassname="cardundefined">
+      <section class="card-card cardroot-class-name">
+        <div class="card-icon1"><img alt="Front-end icon" src="{{ url_for('static', filename='public/Icons/group 1316-200w.png') }}" class="card-icon2" /></div>
+        <main class="card-content">
+          <h1 class="card-header"><span>Front-End</span></h1>
+          <p class="card-description"><span>Ashish Mishra, Student at Dev BHoomi Uttrakhand University, Dehradun</span></p>
+        </main>
+      </section>
+    </card-wrapper>
+    <card-wrapper-rkrw class="card-wrapper-rkrw" rootclassname="cardundefined">
+      <section class="card-card1 cardroot-class-name1">
+        <div class="card-icon3"><img alt="Back-end icon" src="{{ url_for('static', filename='public/Icons/group 1314-200h.png') }}" class="card-icon4" /></div>
+        <main class="card-content1">
+          <h1 class="card-header1"><span>Back-End</span></h1>
+          <p class="card-description1"><span>Bimochan Jena, Student at Dev Bhoomi Uttrakhand University, Dehradun.</span></p>
+        </main>
+      </section>
+    </card-wrapper-rkrw>
+    <card-wrapper-ixt3 class="card-wrapper-ixt3" rootclassname="cardundefined">
+      <section class="card-card2 cardroot-class-name2">
+        <div class="card-icon5"><img alt="Machine Learning icon" src="{{ url_for('static', filename='public/Icons/group 1317-200h.png') }}" class="card-icon6" /></div>
+        <main class="card-content2">
+          <h1 class="card-header2"><span>ML Models</span></h1>
+          <p class="card-description2"><span>Uttam Singh, Student at Dev Bhoomi Uttrakhand University, Dehradun.</span></p>
+        </main>
+      </section>
+    </card-wrapper-ixt3>
+  </main>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // "What We Do" tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.feature-tab');
+      const contentPanels = document.querySelectorAll('.content-panel');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetId = tab.dataset.target;
+          tabs.forEach(t => t.classList.remove('active'));
+          contentPanels.forEach(panel => panel.classList.remove('active-content'));
+          tab.classList.add('active');
+          const targetPanel = document.getElementById(targetId);
+          if (targetPanel) {
+            targetPanel.classList.add('active-content');
+          }
+        });
+      });
+    });
+</script>
+{% endblock %}
+

@@ -1,0 +1,312 @@
+{% extends "layout.html" %}
+
+{% block title %}Symptom Prediction - MEDiWiSE{% endblock %}
+
+{% block styles %}
+<!-- Internal Styles for Form & "How it Works" Section -->
+<style>
+  .symptom-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: #0F0F0F;
+  }
+
+  .symptom-container {
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .symptom-heading {
+    font-size: 32px;
+    font-family: "Poppins";
+    font-weight: 600;
+    color: #0F0F0F;
+    text-align: center;
+  }
+
+  .symptom-subtitle {
+    font-size: 16px;
+    font-family: "Comic Sans MS";
+    color: #555;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .symptom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .symptom-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .symptom-group input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #0F0F0F;
+    font-size: 1rem;
+    font-family: "Poppins";
+    border-width: 2px;
+  }
+
+  .remove-btn {
+    background: rgb(216, 53, 53);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .remove-btn:hover {
+    background: #c0392b;
+  }
+
+  .symptom-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  #addSymptomBtn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: lightblue;
+    font-family: "Poppins";
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #addSymptomBtn:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  .btn-green {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #80FF44;
+    font-family: "Poppins";
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .btn-green:hover {
+    background-color: #4CAF50;
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  .symptom-result {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f1f8ff;
+    border: 1px solid #ddd;
+  }
+
+  .precaution-box {
+    margin-top: 15px;
+    padding: 15px;
+    background: #e8f7f0;
+    border-radius: 10px;
+  }
+
+  .precaution-box h3 {
+    margin-bottom: 10px;
+    font-family: "Poppins";
+    color: #16a085;
+  }
+
+  #about-working {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #0F0F0F;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+
+  #about-working h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4CAF50;
+  }
+
+  #about-working p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(255, 255, 255);
+    text-align: justify;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section-wrapper class="section-wrapper">
+  <section class="section-section">
+    <div class="section-hero">
+      <div class="section-content">
+        <main class="section-main">
+          <span class="section-caption1"><span>Wish you for a Better Health!</span></span>
+          <header class="section-header">
+            <h1 class="section-heading"><span>Are you ready with your Symptoms?</span></h1>
+          </header>
+          <div class="section-buttons">
+            <div class="section-get-started1 button callnow">
+              <span class="section-text1"><span><a href="#form">Predict</a></span></span>
+            </div>
+            <div class="section-get-started2 button">
+              <span class="section-text2"><span><a href="{{ url_for('render_page', page_name='index.html') }}">Back to Home</a></span></span>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="service-img help-main">
+        <img alt="Symptom prediction illustration" src="{{ url_for('static', filename='img/predict_img.png') }}"
+          class="section-image2" style="margin-right: 130px ;" />
+      </div>
+    </div>
+  </section>
+</section-wrapper>
+
+<!-- Symptom Prediction Form Section -->
+<section class="symptom-section" id="form">
+  <div class="symptom-container">
+    <h2 class="symptom-heading"><strong>🩺 Predict Your Disease</strong></h2>
+    <p class="symptom-subtitle">Enter your symptoms below and get an instant prediction with precautions.</p>
+    <form id="symptomForm" class="symptom-form">
+      <div id="symptomInputs">
+        <div class="symptom-group">
+          <input type="text" name="symptom" placeholder="Enter symptom">
+          <button type="button" class="remove-btn" onclick="removeSymptom(this)">X</button>
+        </div>
+      </div>
+      <div class="symptom-buttons">
+        <button type="button" id="addSymptomBtn" class="btn-green">+ Add Symptom</button>
+        <button type="submit" class="btn-green">Predict Disease</button>
+      </div>
+    </form>
+    <div id="predictionResult" class="symptom-result" style="display:none;">
+      <h3>🔍 Result</h3>
+      <p id="diseaseOutput">Possible Disease: <strong>---</strong></p>
+      <p id="accuracyOutput">Confidence: <strong>---</strong></p>
+      <div class="precaution-box">
+        <h3>💡 Precautions</h3>
+        <ul id="precautionList">
+          <li>---</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it Works Section -->
+<section id="about-working">
+  <h2>How our AI Disease Predictor Works?</h2>
+  <p>Our tool uses an advanced AI to suggest a possible health condition based on the symptoms you provide. Here’s a
+    simple breakdown of the process: </p>
+  <p><strong>1. You Enter Symptoms:</strong>1. You Enter Symptoms: Simply tell us how you're feeling by listing your
+    symptoms. </p>
+  <p><strong>2. AI Analysis:</strong> Our system, which has been trained on a massive dataset of over 4,900
+    diseases, instantly analyzes your input. It works like a digital expert, comparing your symptoms to the
+    thousands of patterns it has learned.</p>
+  <p> <strong>3. Instant Results:</strong> Based on its analysis, the AI identifies the most likely disease match.
+    It then provides you with the result, a confidence score, and a list of helpful precautions you can take.</p>
+  <br>
+  <p><span style="color: red; font-weight: 600;">Disclaimer:</span> This tool is for informational purposes only and
+    is not a substitute for professional medical advice. Always consult a qualified doctor for an accurate
+    diagnosis.</p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const form = document.getElementById('symptomForm');
+  const symptomInputsDiv = document.getElementById('symptomInputs');
+  const addBtn = document.getElementById('addSymptomBtn');
+  const resultBox = document.getElementById('predictionResult');
+  const diseaseOutput = document.getElementById('diseaseOutput');
+  const accuracyOutput = document.getElementById('accuracyOutput');
+  const precautionList = document.getElementById('precautionList');
+
+  // Add new symptom input field
+  addBtn.addEventListener('click', () => {
+    const div = document.createElement('div');
+    div.className = 'symptom-group';
+    div.innerHTML = `<input type="text" name="symptom" placeholder="Enter symptom">
+                   <button type="button" class="remove-btn" onclick="removeSymptom(this)">X</button>`;
+    symptomInputsDiv.appendChild(div);
+  });
+
+  // Remove a symptom input field
+  function removeSymptom(btn) {
+    btn.parentElement.remove();
+  }
+
+  // Handle form submission
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const symptoms = [...document.getElementsByName('symptom')]
+      .map(i => i.value.trim().toLowerCase())
+      .filter(Boolean);
+
+    if (!symptoms.length) {
+      alert("⚠️ Please enter at least one symptom!");
+      return;
+    }
+
+    // Show loading state
+    diseaseOutput.innerHTML = "Possible Disease: <strong>Analyzing...</strong>";
+    accuracyOutput.innerHTML = "Confidence: <strong>...</strong>";
+    precautionList.innerHTML = '<li>Please wait...</li>';
+    resultBox.style.display = "block";
+
+    try {
+      const response = await fetch('/api/predict_symptoms', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symptoms: symptoms })
+      });
+      const data = await response.json();
+
+      if (data.error) {
+        alert('Error: ' + data.error);
+        diseaseOutput.innerHTML = "Possible Disease: <strong>Error</strong>";
+        precautionList.innerHTML = `<li>${data.error}</li>`;
+      } else {
+        diseaseOutput.innerHTML = "Possible Disease: <strong>" + data.disease + "</strong>";
+        accuracyOutput.innerHTML = "Confidence: <strong>" + data.accuracy + "</strong>";
+        precautionList.innerHTML = data.precautions.map(p => `<li>${p}</li>`).join("");
+      }
+    } catch (error) {
+      alert('An error occurred. Please check the console.');
+      console.error("Fetch Error:", error);
+      diseaseOutput.innerHTML = "Possible Disease: <strong>Failed to connect</strong>";
+    }
+  });
+</script>
+{% endblock %}
+

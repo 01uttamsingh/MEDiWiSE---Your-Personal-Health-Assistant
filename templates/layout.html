@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}MEDiWiSE{% endblock %}</title>
+    <meta property="og:title" content="Planical modern template" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    {% block styles %}{% endblock %}
+
+    <style data-tag="reset-style-sheet">
+        html { line-height: 1.15; } body { margin: 0; } * { box-sizing: border-box; border-width: 0; border-style: solid; -webkit-font-smoothing: antialiased; } p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; } button { background-color: transparent; } button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; } button, select { text-transform: none; } button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; color: inherit; } button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; } button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; } a { color: inherit; text-decoration: inherit; } pre { white-space: normal; } input { padding: 2px 4px; } img { display: block; } details { display: block; margin: 0; padding: 0; } summary::-webkit-details-marker { display: none; } [data-thq="accordion"] [data-thq="accordion-content"] { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out; padding: 0; } [data-thq="accordion"] details[data-thq="accordion-trigger"][open]+[data-thq="accordion-content"] { max-height: 1000vh; } details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] { transform: rotate(180deg); } html { scroll-behavior: smooth }
+    </style>
+    <style data-tag="default-style-sheet">
+        html { font-family: Inter; font-size: 16px; } body { font-weight: 400; font-style: normal; text-decoration: none; text-transform: none; letter-spacing: normal; line-height: 1.15; color: var(--dl-color-gray-black); background: var(--dl-color-gray-white); fill: var(--dl-color-gray-black); }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" data-tag="font" />
+    <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link href="{{ url_for('static', filename='index.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='responsive.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="home-container1">
+        
+        <!-- Navbar Section -->
+        <header class="navbar-navbar navbarroot-class-name">
+            <a href="{{ url_for('render_page', page_name='index.html') }}"><img alt="MEDiWiSE Logo" src="{{ url_for('static', filename='img/new-logo.png') }}" class="navbar-image1" /></a>
+            <div class="navbar-nav-content">
+                <div class="navbar-nav-links1">
+                    <span class="nav-link"><a href="{{ url_for('render_page', page_name='index.html') }}">Home</a></span>
+                    <span class="nav-link"><a href="{{ url_for('render_page', page_name='services.html') }}">Services</a></span>
+                    <span class="navbar-link3 nav-link"><a href="{{ url_for('render_page', page_name='help.html') }}">HELP</a></span>
+                    <span class="nav-link"><a href="{{ url_for('render_page', page_name='contact.html') }}">Contact</a></span>
+                </div>
+                <div class="get-started navbar-get-started1 nav">
+                    <span class="navbar-text1"><a href="{{ url_for('render_page', page_name='aboutus.html') }}">About Us</a></span>
+                </div>
+                <div id="open-mobile-menu" class="navbar-hamburger get-started">
+                    <img alt="Mobile menu icon" src="{{ url_for('static', filename='public/Icons/hamburger-200h.png') }}" class="navbar-image2" />
+                </div>
+            </div>
+            
+            <!-- CORRECTED Mobile Menu Structure -->
+            <div id="mobile-menu" class="navbar-mobile-menu">
+                <div class="navbar-branding">
+                    <a href="{{ url_for('render_page', page_name='index.html') }}"><img alt="MEDiWiSE Logo" src="{{ url_for('static', filename='img/new-logo.png') }}" class="navbar-image3" /></a>
+                    <div id="close-mobile-menu" class="navbar-container1">
+                        <svg viewBox="0 0 1024 1024" class="navbar-icon1">
+                            <path d="M225.835 286.165l225.835 225.835-225.835 225.835c-16.683 16.683-16.683 43.691 0 60.331s43.691 16.683 60.331 0l225.835-225.835 225.835 225.835c16.683 16.683 43.691 16.683 60.331 0s16.683-43.691 0-60.331l-225.835-225.835 225.835-225.835c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0l-225.835 225.835-225.835-225.835c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="navbar-nav-links2">
+                    <span class="nav-link"><a href="{{ url_for('render_page', page_name='index.html') }}">Home</a></span>
+                    <span class="nav-link"><a href="{{ url_for('render_page', page_name='services.html') }}">Services</a></span>
+                    <span class="nav-link"><a href="{{ url_for('render_page', page_name='help.html') }}">HELP</a></span>
+                    <span class="nav-link"><a href="{{ url_for('render_page', page_name='contact.html') }}">Contact</a></span>
+                </div>
+                <div class="get-started mobile-about-btn">
+                    <span class="navbar-text2"><a href="{{ url_for('render_page', page_name='aboutus.html') }}">About Us</a></span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Chatbot Widget -->
+        <div class="chat-widget-container">
+            <button id="chat-toggle-button" class="chat-button">
+                <img src="{{ url_for('static', filename='img/chatbot.png') }}" alt="Chat Icon">
+            </button>
+            <div id="chat-window" class="chat-window">
+                <iframe src="{{ url_for('render_page', page_name='chat.html') }}" frameborder="0"></iframe>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        <!-- Footer Section -->
+        <footer id="footer" class="footer-footer">
+            <div class="footer-content1">
+                <main class="footer-main-content">
+                    <div class="footer-content2">
+                        <header class="footer-main1">
+                            <div class="footer-header1">
+                                <a href="{{ url_for('render_page', page_name='index.html') }}"><img alt="MEDiWiSE Logo" src="{{ url_for('static', filename='img/new-logo.png') }}" class="footer-image" /></a>
+                                <span class="footer-text10"><span>Helping to grow Better Future together.</span></span>
+                            </div>
+                            <div class="footer-socials">
+                                <a href="https://www.linkedin.com/in/uttam-singh-dec24-mar24/" target="_blank" rel="noreferrer noopener" class="footer-link1"><img alt="LinkedIn" src="{{ url_for('static', filename='public/Icons/linkedin-200h.png') }}" class="social" /></a>
+                                <a href="https://github.com/01uttamsingh" target="_blank" rel="noreferrer noopener" class="footer-link-github">
+                                    <svg viewBox="0 0 24 24" class="social" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                                </a>
+                                <a href="https://example.com" target="_blank" rel="noreferrer noopener" class="footer-link2"><img alt="Instagram" src="{{ url_for('static', filename='public/Icons/instagram-200h.png') }}" class="social" /></a>
+                                <a href="https://example.com" target="_blank" rel="noreferrer noopener" class="footer-link3"><img alt="Twitter" src="{{ url_for('static', filename='public/Icons/twitter-200h.png') }}" class="social" /></a>
+                            </div>
+                        </header>
+                        <header class="footer-categories">
+                            <div class="footer-category1">
+                                <div class="footer-header2"><span class="footer-header"><span>Solutions</span></span></div>
+                                <div class="footer-links1">
+                                    <span class="footer-link"><span>Responsive Web Design</span></span>
+                                    <span class="footer-link"><span>Design to Code</span></span>
+                                    <span class="footer-link"><span>Static Website Builder</span></span>
+                                    <span class="footer-link"><span>ML models generation</span></span>
+                                    <span class="footer-link"><span>Content Writer</span></span>
+                                </div>
+                            </div>
+                            <div class="footer-category2">
+                                <div class="footer-header3"><span class="footer-header"><span>Company</span></span></div>
+                                <div class="footer-links2">
+                                    <span class="footer-link"><span><a href="{{ url_for('render_page', page_name='aboutus.html') }}">About</a></span></span>
+                                    <span class="footer-link"><span><a href="#team">Our Team</a></span></span>
+                                </div>
+                            </div>
+                        </header>
+                    </div>
+                    <section class="footer-copyright1"><span class="footer-text20"><span>© 2025&nbsp; MEDiWiSE. All Rights Reserved.</span></span></section>
+                </main>
+                <main class="footer-subscribe">
+                    <main class="footer-main2">
+                        <h1 class="footer-heading"><span>Mail us to Work With Us.</span></h1>
+                        <div class="footer-input-field">
+                            <input type="email" placeholder="Enter your email" class="footer-textinput input" />
+                            <div class="footer-buy button">
+                                <span class="footer-text21"><span>-&gt;</span></span>
+                                <span class="footer-text22">
+                                    <a href="mailto:uttamstudentof.cs@gmail.com?subject=Inquiry&body=Hello, I would like to know more about your services." class="footer-buy button">
+                                        <span class="footer-text21">-&gt;</span>
+                                        <span class="footer-text22">Mail Now</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </main>
+                    <h1 class="footer-notice">
+                        <span>
+                            <span>Write your short description of the work in the mail.</span><br />
+                            <span>Thank you!&nbsp;</span><br />
+                            <span>Have a great Day.</span><br />
+                        </span>
+                    </h1>
+                </main>
+                <section class="footer-copyright2"><span class="footer-text23"><span>© 2025&nbsp; MEDiWiSE. All Rights Reserved.</span></span></section>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Global JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const openMenuButton = document.getElementById('open-mobile-menu');
+            const closeMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (openMenuButton && mobileMenu) {
+                openMenuButton.addEventListener('click', () => {
+                    mobileMenu.style.transform = 'translateX(0%)';
+                });
+            }
+            if (closeMenuButton && mobileMenu) {
+                closeMenuButton.addEventListener('click', () => {
+                    mobileMenu.style.transform = 'translateX(100%)';
+                });
+            }
+
+            const currentPage = location.pathname.split("/").pop() || "index.html";
+            const navLinks = document.querySelectorAll(".navbar-nav-links1 a, .navbar-nav-links2 a");
+            navLinks.forEach(link => {
+                if (link.getAttribute("href").includes(currentPage)) {
+                    link.parentElement.classList.add("active");
+                }
+            });
+
+            const chatToggleButton = document.getElementById('chat-toggle-button');
+            const chatWindow = document.getElementById('chat-window');
+            if (chatToggleButton && chatWindow) {
+                chatToggleButton.addEventListener('click', () => {
+                    chatWindow.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+    
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>
+

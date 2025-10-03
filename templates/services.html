@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block title %}Our Services - MEDiWiSE{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section-wrapper class="section-wrapper">
+  <section class="section-section">
+    <div class="section-hero">
+      <div class="section-content">
+        <main class="section-main">
+          <span class="section-caption1"><span>Wish you for a Better Health!</span></span>
+          <header class="section-header">
+            <h1 class="section-heading"><span>MEDiWiSE, Welcomes you</span></h1>
+          </header>
+          <div class="section-buttons">
+            <div class="section-get-started1 button">
+              <span class="section-text1"><span><a href="#services">Services</a></span></span>
+            </div>
+            <div class="section-get-started2 button">
+              <span class="section-text2"><span><a href="{{ url_for('render_page', page_name='index.html') }}">Back to Home</a></span></span>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="service-img">
+        <img alt="Services illustration" src="{{ url_for('static', filename='img/service.png') }}" class="section-image2" />
+      </div>
+    </div>
+  </section>
+</section-wrapper>
+
+<!-- Services List Section -->
+<section id="services" class="home-service">
+  <header class="home-header1">
+    <h2 class="home-text28">Services, that we provide here</h2>
+  </header>
+  <section class="home-note1">
+    <div class="home-image1">
+      <img alt="Symptom Prediction Illustration" src="{{ url_for('static', filename='img/predict.png') }}" class="home-image2" />
+    </div>
+    <div class="home-content1">
+      <div class="home-main2">
+        <div class="home-caption1">
+          <span class="section-head">Predict your Disease&nbsp;</span>
+        </div>
+        <div class="home-heading1">
+          <h2 class="section-heading">We provide Symptom based Prediction.</h2>
+          <p class="section-description">Just enter your symptoms, and our system will predict a possible disease and suggest precautions you should take. It also displays the accuracy of the prediction, as it is powered by a machine learning model trained on real datasets.</p>
+        </div>
+      </div>
+      <div class="home-get-started1 button">
+        <span class="home-text29"><a href="{{ url_for('render_page', page_name='ml_predict.html') }}">Let's Predict</a></span>
+      </div>
+    </div>
+  </section>
+  <section class="home-note2">
+    <div class="home-image3">
+      <img alt="Skin Disease Illustration" src="{{ url_for('static', filename='img/skin.png') }}" class="home-image4" />
+    </div>
+    <div class="home-content2">
+      <main class="home-main3">
+        <header class="home-caption2">
+          <span class="home-section2 section-head">Skin-Disease Prediction</span>
+        </header>
+        <main class="home-heading3">
+          <header class="home-header2">
+            <h2 class="section-heading">Just upload the image of your disease and it'll predict the disease you may have.</h2>
+            <p class="section-description">This system uses a deep learning model trained on 7 common types of diseases. It predicts a possible disease based on your symptoms and provides precautions you can take. Please note: this is not a medical diagnosis. Always consult a doctor for accurate advice.</p>
+          </header>
+        </main>
+      </main>
+      <div class="home-get-started2 button">
+        <span class="home-text30"><a href="{{ url_for('render_page', page_name='dl_predict.html') }}">Get started</a></span>
+      </div>
+    </div>
+  </section>
+  <section class="home-note3">
+    <div class="home-image5">
+      <img alt="Home Remedies Illustration" src="{{ url_for('static', filename='img/remedies.png') }}" class="home-image6" />
+    </div>
+    <div class="home-content3">
+      <div class="home-main4">
+        <div class="home-caption3">
+          <span class="section-head">Remedies-At Home</span>
+        </div>
+        <div class="home-heading5">
+          <h2 class="section-heading">Just write the name the disease, you want the remedies.</h2>
+          <p class="section-description">Just enter the name of the disease, and the system will provide home remedies for quick relief. Please note: these remedies are for temporary comfort and do not replace professional medical advice. Always consult a doctor for proper treatment.</p>
+        </div>
+      </div>
+      <div class="home-get-started3 button">
+        <span class="home-text31"><a href="{{ url_for('render_page', page_name='remedies.html') }}">See Magic</a></span>
+      </div>
+    </div>
+  </section>
+</section>
+{% endblock %}
+

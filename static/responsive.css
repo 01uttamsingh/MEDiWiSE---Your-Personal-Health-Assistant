@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Responsive Design for MEDiWiSE (V2 - Perfected)
+   - This file contains precise style adjustments for all screen sizes.
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* --- Tablet & Mobile Styles (for screens smaller than 992px) --- */
+/* -------------------------------------------------------------------------- */
+@media(max-width: 991px) {
+
+    /* --- General Layout & Font Adjustments --- */
+    .section-heading {
+        font-size: 38px; /* Slightly reduce heading font size */
+        line-height: 1.2;
+    }
+
+    /* --- Navbar Adjustments --- */
+    .navbar-nav-links1,
+    .navbar-get-started1 {
+        display: none; /* Hide the desktop navigation links and 'About Us' button */
+    }
+
+    /* --- HAMBURGER ICON FIX --- */
+    .navbar-hamburger {
+        display: flex; /* Show the hamburger menu icon */
+        padding: var(--dl-layout-space-halfunit); /* Reduce padding to make it smaller */
+        background-color: transparent; /* Remove the button background */
+    }
+    .navbar-hamburger:hover {
+        background-color: #2a2a2a; /* Add a subtle hover effect */
+        transform: none; /* Remove hover scaling */
+        opacity: 1;
+    }
+    .navbar-image2 {
+        width: 24px;  /* Make the icon image small and square */
+        height: 24px;
+    }
+
+
+    /* --- MOBILE MENU FIXES --- */
+    /* NEW: Set the background of the mobile menu to the dark theme color */
+    .navbar-mobile-menu {
+        background-color: #0F0F0F;
+    }
+
+    /* This ensures all links inside the mobile menu are visible and styled correctly. */
+    .navbar-mobile-menu .nav-link a {
+        color: #FFFFFF; /* NEW: Set link text to white for the dark background */
+        font-weight: 600;
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+    }
+    
+    /* This removes the button styling from 'About Us' inside the mobile menu. */
+    .navbar-mobile-menu .mobile-about-btn {
+        background-color: transparent;
+        padding: 0;
+        margin-top: var(--dl-layout-space-unit);
+        justify-content: flex-start; /* Align text to the left */
+    }
+    /* Styles the text inside the mobile 'About Us' button to look like a normal link */
+    .navbar-mobile-menu .mobile-about-btn .navbar-text2 a {
+        color: #FFFFFF; /* NEW: Set link text to white */
+        font-weight: 600;
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+    }
+    /* Disables the hover effects for the button inside the mobile menu */
+    .navbar-mobile-menu .mobile-about-btn:hover {
+        opacity: 1;
+        transform: none;
+    }
+    
+    /* Ensures the logo inside the mobile menu is in its original color */
+    .navbar-image3 {
+        filter: none; /* NEW: Removed the black filter */
+    }
+    
+    /* NEW: Makes the 'X' close icon white */
+    .navbar-icon1 {
+        fill: #FFFFFF;
+    }
+
+
+    /* --- Hero Section Stacking --- */
+    .section-hero {
+        flex-direction: column;
+        gap: var(--dl-layout-space-threeunits);
+        text-align: center;
+    }
+    
+    .section-content,
+    .section-main {
+        align-items: center; /* Center-align the text and buttons */
+    }
+
+    /* Hide large decorative images and show the smaller, responsive version */
+    .section-image1, .service-img {
+        display: none;
+    }
+    .section-image3 {
+        display: block;
+        width: 100%;
+        max-width: 500px;
+    }
+    .section-section {
+        height: auto;
+        padding-top: var(--dl-layout-space-sixunits);
+        padding-bottom: var(--dl-layout-space-sixunits);
+    }
+    
+    /* --- Content Sections (Services, Home page notes) --- */
+    .home-note1, .home-note2, .home-note3 {
+        flex-direction: column-reverse; /* Stack image and text vertically */
+        gap: var(--dl-layout-space-threeunits);
+    }
+
+    /* --- Tabbed "What We Do" Section --- */
+    .features-nav {
+        flex-direction: column;
+    }
+    .feature-tab {
+        border-bottom: 1px solid #444;
+        text-align: center;
+    }
+    .content-panel {
+        flex-direction: column;
+    }
+    .content-image img {
+        margin-left: 0; /* Remove margin to center image */
+    }
+
+    /* --- Team & Feature Cards --- */
+    .home-cards, .features-grid {
+        flex-direction: column;
+        gap: var(--dl-layout-space-twounits);
+    }
+    
+    /* --- Prediction Page Layouts --- */
+    .prediction-content-area,
+    .contact-container {
+        flex-direction: column;
+    }
+    .symptom-container, .skin-prediction-container {
+        padding: 25px;
+    }
+
+    /* --- Footer Stacking --- */
+    .footer-content1, .footer-content2, .footer-categories {
+        flex-direction: column;
+        gap: var(--dl-layout-space-threeunits);
+    }
+    .footer-categories {
+        align-items: flex-start; /* Align link categories to the left */
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Mobile Styles (for screens smaller than 767px) --- */
+/* -------------------------------------------------------------------------- */
+@media(max-width: 767px) {
+    
+    /* --- General Typography & Spacing for Mobile --- */
+    .section-heading, .home-text28, .features-header h2, .remedies-header h2,
+    .skin-prediction-header h2, .symptom-heading, .contact-header h2 {
+        font-size: 30px; /* Further reduce heading sizes for readability */
+        line-height: 1.3;
+    }
+    
+    .section-section, .remedies-wrapper, .skin-prediction-wrapper, #our-features {
+        padding-top: var(--dl-layout-space-fourunits);
+        padding-bottom: var(--dl-layout-space-fourunits);
+    }
+
+    /* --- Hero Section Buttons --- */
+    .section-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .section-get-started1, .section-get-started2 {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* --- Prediction Form Adjustments --- */
+    .symptom-section {
+        padding-left: var(--dl-layout-space-halfunit);
+        padding-right: var(--dl-layout-space-halfunit);
+    }
+
+    /* --- Chatbot Widget Adjustments for smaller screens --- */
+    .chat-button {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .chat-button img {
+        width: 60px;
+        height: 60px;
+    }
+    .chat-window {
+        width: calc(100vw - 30px); /* Make chat window almost full-width */
+        height: 75vh; /* Taller on mobile */
+        bottom: 85px;
+        right: 15px;
+    }
+    
+    /* --- Footer on Mobile --- */
+    .footer-subscribe {
+        align-items: center; /* Center the "Mail Us" form */
+    }
+    .footer-main2, .footer-notice {
+        text-align: center;
+    }
+    .footer-heading {
+        text-align: center;
+    }
+    .footer-input-field {
+        width: 100%;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* --- Small Mobile Styles (for screens smaller than 479px) --- */
+/* -------------------------------------------------------------------------- */
+@media(max-width: 479px) {
+    /* Reduce padding on the smallest screens for more content space */
+    .remedies-wrapper, .skin-prediction-wrapper, .symptom-section, #our-features {
+        padding-left: var(--dl-layout-space-unit);
+        padding-right: var(--dl-layout-space-unit);
+    }
+
+    /* Make prediction form buttons stack */
+    .symptom-buttons {
+        flex-direction: column;
+    }
+    
+    .footer-input-field {
+        flex-direction: column;
+        background-color: transparent;
+        gap: var(--dl-layout-space-unit);
+    }
+    .footer-textinput {
+        width: 100%;
+        text-align: center;
+        background-color: #292929;
+        padding-top: var(--dl-layout-space-unit);
+        padding-bottom: var(--dl-layout-space-unit);
+        border-radius: 50px;
+    }
+}
+
