@@ -1,8 +1,7 @@
 # Python virtual environment
 myenv/
 venv/
-utils/
-chatbots/
+
 
 # Python cache files
 __pycache__/
